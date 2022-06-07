@@ -3,7 +3,7 @@ const fs = require('fs')
 class Contenedor {
     constructor(fileName) {
         this.fileName = fileName
-        fs.promises.writeFile(`./${fileName}`, '')
+        fs.promises.readFile(`./${fileName}`, 'utf-8')
     }
     async save(movie) {
         let data = await fs.promises.readFile(`./${this.fileName}`, 'utf-8')
@@ -32,7 +32,6 @@ class Contenedor {
             } else {
                 console.log(null)
             }
-            // data ? console.log(data) : console.log(null)
         } catch {
             console.log('No existen películas')
         }
@@ -40,36 +39,39 @@ class Contenedor {
 
     async getAll() {
         try {
-            let data = await fs.promises.readFile(`./${this.fileName}`, 'utf-8')
-            console.log(JSON.parse(data))
+            const data = await fs.promises.readFile(`./${this.fileName}`, 'utf-8')
+            return JSON.parse(data)
         }
         catch {
             console.log('No existen películas')
         }
     }
 
+
     async deleteById(id) {
         try {
             let data = await fs.promises.readFile(`./${this.fileName}`, 'utf-8')
             data = JSON.parse(data)
-            data = data.filter(product => product.id != id)
+            data = data.filter(movie => movie.id != id)
 
             console.log(data)
         } catch {
-            console.log('No existen películas')
+            console.log('No existe la película')
         }
-
     }
 
     async deleteAll() {
-        try {
-            let data = await fs.promises.readFile(`./${this.fileName}`, 'utf-8')
-            data = JSON.parse(data)
-            data = []
 
-            console.log(data)
-        } catch {
-            console.log('No existen películas')
+        try {
+
+            await fs.promises.writeFile('./movies.txt', '[]')
+
+            console.log('Todas las películas del archivo fueron eliminadas.')
+
+        } catch (error) {
+
+            console.log(`Ocurrió un error: ${error}`)
+
         }
 
     }
@@ -111,8 +113,8 @@ const entrega = async () => {
     await movies.getById(3)
     await movies.getById(5)
     await movies.getAll()
-    // await movies.deleteById(5)
-    // await movies.deleteAll()
+    await movies.deleteById(5)
+    await movies.deleteAll()
 }
 
 entrega()

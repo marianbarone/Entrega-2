@@ -1,1 +1,20 @@
-[{"title":"Inception","price":950,"thumbnail":"https://m.media-amazon.com/images/I/71uKM+LdgFL._AC_SY741_.jpg","id":1},{"title":"Interstellar","price":1000,"thumbnail":"https://m.media-amazon.com/images/I/71LNVGVpWYL._AC_SY679_.jpg","id":2},{"title":"Tenet","price":1200,"thumbnail":"https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/tenet-1593638684.jpeg?crop=1xw:1xh;center,top&resize=480:*","id":3},{"title":"Dunkirk","price":800,"thumbnail":"https://m.media-amazon.com/images/I/61jphewUR6L._AC_SL1111_.jpg","id":4}]
+[
+    {
+        "title":"Batman Begins",
+        "price":900,
+        "thumbnail":"https://m.media-amazon.com/images/I/51tDmlhOKWL._AC_.jpg",
+        "id":1
+    },
+    {
+        "title":"The Dark Knight",
+        "price":1000,
+        "thumbnail":"https://http2.mlstatic.com/D_NQ_NP_762347-MLA31840426768_082019-O.jpg",
+        "id":2
+    },
+    {   
+        "title":"The Dark Knight Rises",
+        "price":1200,
+        "thumbnail":"https://m.media-amazon.com/images/I/81G+2LJQJeL._AC_SY679_.jpg",
+        "id":3
+    }
+]
